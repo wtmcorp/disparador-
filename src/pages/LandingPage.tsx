@@ -25,6 +25,20 @@ export default function LandingPage() {
     leads.push(lead)
     localStorage.setItem('leads', JSON.stringify(leads))
 
+    // Send data to owner's WhatsApp
+    const ownerPhone = '5511950916614'
+    const message = `🚀 *Novo Lead Capturado!*
+
+👤 *Nome:* ${formData.nome}
+📧 *Email:* ${formData.email}
+📱 *WhatsApp:* ${formData.telefone}
+🏢 *Empresa:* ${formData.empresa}
+📍 *Região:* ${formData.regiao}
+💻 *Interesse:* ${formData.tipoSite === 'landing-page' ? 'Landing Page' : formData.tipoSite === 'site-completo' ? 'Site Completo' : 'Indeciso'}`
+
+    const whatsappUrl = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+
     setSubmitted(true)
     setTimeout(() => {
       setFormData({
