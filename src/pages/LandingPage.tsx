@@ -160,8 +160,20 @@ export default function LandingPage() {
                   SEO otimizado
                 </li>
               </ul>
-              <div className="mt-6 text-3xl font-bold text-white">
-                A partir de <span className="text-blue-400">R$ 297</span>
+              <div className="mt-6">
+                <div className="text-3xl font-bold text-white">
+                  R$ 297 <span className="text-sm font-normal text-slate-400">à vista</span>
+                </div>
+                <div className="text-slate-400 text-sm mb-4">
+                  ou 12x de R$ 29,90
+                </div>
+                <div className="pt-4 border-t border-slate-700">
+                  <p className="text-sm text-slate-300 mb-1">Prefere pagar por mês?</p>
+                  <div className="text-xl font-bold text-blue-400">
+                    R$ 49,90<span className="text-sm text-slate-400">/mês</span>
+                  </div>
+                  <p className="text-xs text-slate-500">Incluso hospedagem e manutenção</p>
+                </div>
               </div>
             </div>
 
@@ -196,8 +208,20 @@ export default function LandingPage() {
                   Funcionalidades customizadas
                 </li>
               </ul>
-              <div className="mt-6 text-3xl font-bold text-white">
-                A partir de <span className="text-blue-400">R$ 997</span>
+              <div className="mt-6">
+                <div className="text-3xl font-bold text-white">
+                  R$ 997 <span className="text-sm font-normal text-slate-400">à vista</span>
+                </div>
+                <div className="text-slate-400 text-sm mb-4">
+                  ou 12x de R$ 99,90
+                </div>
+                <div className="pt-4 border-t border-slate-700/50">
+                  <p className="text-sm text-slate-300 mb-1">Prefere pagar por mês?</p>
+                  <div className="text-xl font-bold text-blue-400">
+                    R$ 149,90<span className="text-sm text-slate-400">/mês</span>
+                  </div>
+                  <p className="text-xs text-slate-500">Incluso hospedagem e manutenção</p>
+                </div>
               </div>
             </div>
           </div>

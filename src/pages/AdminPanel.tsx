@@ -29,6 +29,9 @@ export default function AdminPanel() {
     mensagem: 'Olá {nome}! Obrigado pelo interesse na WTM Corps. Gostaríamos de conversar sobre seu projeto de {tipoSite}. Quando podemos agendar uma conversa?'
   })
   const [sendStatus, setSendStatus] = useState<{ success: boolean; message: string } | null>(null)
+  const [bulkNumbers, setBulkNumbers] = useState<string[]>([])
+  const [showBulkModal, setShowBulkModal] = useState(false)
+  const [bulkMessage, setBulkMessage] = useState('Olá! Conheça nossos serviços de criação de sites e landing pages profissionais. Preços promocionais a partir de R$ 297!')
 
   useEffect(() => {
     loadLeads()
@@ -193,6 +196,51 @@ export default function AdminPanel() {
     }, 3000)
   }
 
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      const content = event.target?.result as string
+      const numbers = content.split(/[\n,;]/)
+        .map(n => n.replace(/\D/g, ''))
+        .filter(n => n.length >= 10)
+      setBulkNumbers(numbers)
+    }
+    reader.readAsText(file)
+  }
+
+  const sendBulkMessages = () => {
+    if (bulkNumbers.length === 0) {
+      alert('Por favor, carregue uma lista de números primeiro.')
+      return
+    }
+
+    bulkNumbers.forEach((number, idx) => {
+      const whatsappUrl = `https://wa.me/55${number}?text=${encodeURIComponent(bulkMessage)}`
+
+      // Anti-ban: Random delay between 10 and 30 seconds for bulk cold messaging
+      const randomDelay = Math.floor(Math.random() * 20000) + 10000
+      const delay = idx === 0 ? 0 : (idx * 15000) + randomDelay
+
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank')
+      }, delay)
+    })
+
+    setSendStatus({
+      success: true,
+      message: `Iniciando disparo para ${bulkNumbers.length} números com intervalos de segurança.`
+    })
+
+    setTimeout(() => {
+      setShowBulkModal(false)
+      setSendStatus(null)
+      setBulkNumbers([])
+    }, 5000)
+  }
+
   const getStatusColor = (status: Lead['status']) => {
     const colors = {
       'novo': 'bg-blue-600',
@@ -355,6 +403,13 @@ export default function AdminPanel() {
                 <Send className="w-4 h-4" />
                 Disparar Mensagens
               </button>
+              <button
+                onClick={() => setShowBulkModal(true)}
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors flex items-center gap-2"
+              >
+                <Users className="w-4 h-4" />
+                Disparo em Massa (Arquivo)
+              </button>
             </div>
           </div>
 
@@ -471,8 +526,8 @@ export default function AdminPanel() {
 
             {sendStatus && (
               <div className={`p-4 rounded-lg mb-6 flex items-center gap-2 ${sendStatus.success
-                  ? 'bg-green-600/20 border border-green-600 text-green-400'
-                  : 'bg-red-600/20 border border-red-600 text-red-400'
+                ? 'bg-green-600/20 border border-green-600 text-green-400'
+                : 'bg-red-600/20 border border-red-600 text-red-400'
                 }`}>
                 {sendStatus.success ? <CheckCircle className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                 {sendStatus.message}
@@ -532,6 +587,84 @@ export default function AdminPanel() {
               >
                 <Send className="w-5 h-5" />
                 Enviar Mensagens
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {showBulkModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-slate-800 rounded-xl border border-slate-700 p-8 max-w-2xl w-full">
+            <h2 className="text-2xl font-bold text-white mb-6">Disparo em Massa via Arquivo</h2>
+
+            {sendStatus && (
+              <div className={`p-4 rounded-lg mb-6 flex items-center gap-2 ${sendStatus.success
+                ? 'bg-green-600/20 border border-green-600 text-green-400'
+                : 'bg-red-600/20 border border-red-600 text-red-400'
+                }`}>
+                {sendStatus.success ? <CheckCircle className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
+                {sendStatus.message}
+              </div>
+            )}
+
+            <div className="mb-6">
+              <label className="block text-white mb-2 font-semibold">Carregar Números (TXT ou CSV)</label>
+              <input
+                type="file"
+                accept=".txt,.csv"
+                onChange={handleFileUpload}
+                className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+              />
+              <p className="text-slate-400 text-xs mt-2">
+                O arquivo deve conter um número por linha ou separados por vírgula.
+              </p>
+            </div>
+
+            {bulkNumbers.length > 0 && (
+              <div className="mb-6 p-3 bg-blue-600/10 border border-blue-600/20 rounded-lg">
+                <p className="text-blue-400 text-sm font-medium">
+                  {bulkNumbers.length} números identificados e prontos para o disparo.
+                </p>
+              </div>
+            )}
+
+            <div className="mb-6">
+              <label className="block text-white mb-2 font-semibold">Mensagem de Divulgação</label>
+              <textarea
+                value={bulkMessage}
+                onChange={(e) => setBulkMessage(e.target.value)}
+                rows={6}
+                className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                placeholder="Digite sua mensagem de divulgação..."
+              />
+            </div>
+
+            <div className="bg-yellow-600/10 border border-yellow-600/20 p-4 rounded-lg mb-6">
+              <p className="text-yellow-500 text-xs leading-relaxed">
+                <strong>⚠️ AVISO DE SEGURANÇA (ANTI-BAN):</strong><br />
+                Para sua segurança, as mensagens serão enviadas com intervalos aleatórios de 15 a 35 segundos.
+                Isso reduz drasticamente o risco de bloqueio, mas lembre-se de não exagerar na quantidade diária.
+              </p>
+            </div>
+
+            <div className="flex gap-4">
+              <button
+                onClick={() => {
+                  setShowBulkModal(false)
+                  setSendStatus(null)
+                  setBulkNumbers([])
+                }}
+                className="flex-1 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={sendBulkMessages}
+                disabled={bulkNumbers.length === 0}
+                className="flex-1 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send className="w-5 h-5" />
+                Iniciar Disparo
               </button>
             </div>
           </div>
