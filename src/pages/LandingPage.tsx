@@ -165,14 +165,18 @@ export default function LandingPage() {
                   R$ 297 <span className="text-sm font-normal text-slate-400">à vista</span>
                 </div>
                 <div className="text-slate-400 text-sm mb-4">
-                  ou 12x de R$ 29,90
+                  ou 12x de R$ 24,75 <span className="text-blue-400 font-semibold">sem juros</span>
                 </div>
                 <div className="pt-4 border-t border-slate-700">
-                  <p className="text-sm text-slate-300 mb-1">Prefere pagar por mês?</p>
-                  <div className="text-xl font-bold text-blue-400">
+                  <p className="text-sm font-bold text-blue-400 mb-1">Plano Web-as-a-Service</p>
+                  <div className="text-2xl font-bold text-white">
                     R$ 49,90<span className="text-sm text-slate-400">/mês</span>
                   </div>
-                  <p className="text-xs text-slate-500">Incluso hospedagem e manutenção</p>
+                  <ul className="text-[10px] text-slate-400 mt-2 space-y-1">
+                    <li>• Hospedagem e Domínio Grátis</li>
+                    <li>• Alterações Ilimitadas</li>
+                    <li>• Sem multa de cancelamento</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -213,14 +217,18 @@ export default function LandingPage() {
                   R$ 2.497 <span className="text-sm font-normal text-slate-400">à vista</span>
                 </div>
                 <div className="text-slate-400 text-sm mb-4">
-                  ou 12x de R$ 249,90
+                  ou 12x de R$ 208,08 <span className="text-blue-400 font-semibold">sem juros</span>
                 </div>
                 <div className="pt-4 border-t border-slate-700/50">
-                  <p className="text-sm text-slate-300 mb-1">Prefere pagar por mês?</p>
-                  <div className="text-xl font-bold text-blue-400">
-                    R$ 299,90<span className="text-sm text-slate-400">/mês</span>
+                  <p className="text-sm font-bold text-blue-400 mb-1">Plano Business Pro</p>
+                  <div className="text-2xl font-bold text-white">
+                    R$ 197,90<span className="text-sm text-slate-400">/mês</span>
                   </div>
-                  <p className="text-xs text-slate-500">Incluso hospedagem e manutenção</p>
+                  <ul className="text-[10px] text-slate-400 mt-2 space-y-1">
+                    <li>• Setup Zero (Economize R$ 2.497)</li>
+                    <li>• SEO e Manutenção Mensal</li>
+                    <li>• Suporte VIP 24h</li>
+                  </ul>
                 </div>
               </div>
             </div>
