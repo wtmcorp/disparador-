@@ -121,8 +121,8 @@ export default function LandingPage() {
               <div className="flex items-center justify-center w-12 h-12 bg-blue-600/20 rounded-lg mb-4">
                 <Rocket className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">7 Dias Entrega</h3>
-              <p className="text-slate-400">Tempo médio de desenvolvimento</p>
+              <h3 className="text-xl font-bold text-white mb-2">1-2 Dias Entrega</h3>
+              <p className="text-slate-400">Tempo médio para Landing Pages</p>
             </div>
           </div>
         </div>
@@ -210,15 +210,15 @@ export default function LandingPage() {
               </ul>
               <div className="mt-6">
                 <div className="text-3xl font-bold text-white">
-                  R$ 997 <span className="text-sm font-normal text-slate-400">à vista</span>
+                  R$ 2.497 <span className="text-sm font-normal text-slate-400">à vista</span>
                 </div>
                 <div className="text-slate-400 text-sm mb-4">
-                  ou 12x de R$ 99,90
+                  ou 12x de R$ 249,90
                 </div>
                 <div className="pt-4 border-t border-slate-700/50">
                   <p className="text-sm text-slate-300 mb-1">Prefere pagar por mês?</p>
                   <div className="text-xl font-bold text-blue-400">
-                    R$ 149,90<span className="text-sm text-slate-400">/mês</span>
+                    R$ 299,90<span className="text-sm text-slate-400">/mês</span>
                   </div>
                   <p className="text-xs text-slate-500">Incluso hospedagem e manutenção</p>
                 </div>
@@ -296,7 +296,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Entrega Rápida</h3>
               <p className="text-slate-300">
-                Projetos entregues em até 7 dias, sem comprometer a qualidade.
+                Landing Pages em até 48h e Projetos Completos em 30 dias.
               </p>
             </div>
           </div>
