@@ -14,7 +14,7 @@ export default function LandingPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     const lead = {
       ...formData,
       dataCaptura: new Date().toISOString(),
@@ -147,7 +147,7 @@ export default function LandingPage() {
                 </li>
               </ul>
               <div className="mt-6 text-3xl font-bold text-white">
-                A partir de <span className="text-blue-400">R$ 497</span>
+                A partir de <span className="text-blue-400">R$ 297</span>
               </div>
             </div>
 
@@ -183,7 +183,7 @@ export default function LandingPage() {
                 </li>
               </ul>
               <div className="mt-6 text-3xl font-bold text-white">
-                A partir de <span className="text-blue-400">R$ 1.997</span>
+                A partir de <span className="text-blue-400">R$ 997</span>
               </div>
             </div>
           </div>
