@@ -48,7 +48,7 @@ export default function AdminPanel() {
     let filtered = [...leads]
 
     if (filters.regiao) {
-      filtered = filtered.filter(lead => 
+      filtered = filtered.filter(lead =>
         lead.regiao.toLowerCase().includes(filters.regiao.toLowerCase())
       )
     }
@@ -65,8 +65,8 @@ export default function AdminPanel() {
   }
 
   const toggleLeadSelection = (index: number) => {
-    setSelectedLeads(prev => 
-      prev.includes(index) 
+    setSelectedLeads(prev =>
+      prev.includes(index)
         ? prev.filter(i => i !== index)
         : [...prev, index]
     )
@@ -83,10 +83,10 @@ export default function AdminPanel() {
   const updateLeadStatus = (index: number, status: Lead['status']) => {
     const updatedLeads = [...leads]
     const leadToUpdate = filteredLeads[index]
-    const originalIndex = leads.findIndex(l => 
+    const originalIndex = leads.findIndex(l =>
       l.email === leadToUpdate.email && l.dataCaptura === leadToUpdate.dataCaptura
     )
-    
+
     if (originalIndex !== -1) {
       updatedLeads[originalIndex].status = status
       localStorage.setItem('leads', JSON.stringify(updatedLeads))
@@ -97,7 +97,7 @@ export default function AdminPanel() {
   const deleteLead = (index: number) => {
     if (confirm('Deseja realmente excluir este lead?')) {
       const leadToDelete = filteredLeads[index]
-      const updatedLeads = leads.filter(l => 
+      const updatedLeads = leads.filter(l =>
         !(l.email === leadToDelete.email && l.dataCaptura === leadToDelete.dataCaptura)
       )
       localStorage.setItem('leads', JSON.stringify(updatedLeads))
@@ -107,7 +107,7 @@ export default function AdminPanel() {
   }
 
   const exportLeads = () => {
-    const leadsToExport = selectedLeads.length > 0 
+    const leadsToExport = selectedLeads.length > 0
       ? selectedLeads.map(idx => filteredLeads[idx])
       : filteredLeads
 
@@ -134,7 +134,7 @@ export default function AdminPanel() {
   }
 
   const sendMessages = () => {
-    const leadsToContact = selectedLeads.length > 0 
+    const leadsToContact = selectedLeads.length > 0
       ? selectedLeads.map(idx => filteredLeads[idx])
       : filteredLeads
 
@@ -144,29 +144,33 @@ export default function AdminPanel() {
     }
 
     leadsToContact.forEach((lead, idx) => {
-      const originalIndex = leads.findIndex(l => 
+      const originalIndex = leads.findIndex(l =>
         l.email === lead.email && l.dataCaptura === lead.dataCaptura
       )
 
       const personalizedMessage = messageConfig.mensagem
         .replace('{nome}', lead.nome)
         .replace('{empresa}', lead.empresa)
-        .replace('{tipoSite}', lead.tipoSite === 'landing-page' ? 'Landing Page' : 
-                 lead.tipoSite === 'site-completo' ? 'Site Completo' : lead.tipoSite)
+        .replace('{tipoSite}', lead.tipoSite === 'landing-page' ? 'Landing Page' :
+          lead.tipoSite === 'site-completo' ? 'Site Completo' : lead.tipoSite)
 
       if (messageConfig.tipo === 'whatsapp') {
         const phone = lead.telefone.replace(/\D/g, '')
         const whatsappUrl = `https://wa.me/55${phone}?text=${encodeURIComponent(personalizedMessage)}`
-        
+
+        // Add random delay between 5 and 15 seconds to avoid ban
+        const randomDelay = Math.floor(Math.random() * 10000) + 5000
+        const delay = idx === 0 ? 0 : (idx * 10000) + randomDelay
+
         setTimeout(() => {
           window.open(whatsappUrl, '_blank')
-        }, idx * 1000)
+        }, delay)
       } else if (messageConfig.tipo === 'email') {
         const emailUrl = `mailto:${lead.email}?subject=Proposta WTM Corps - ${lead.tipoSite}&body=${encodeURIComponent(personalizedMessage)}`
-        
+
         setTimeout(() => {
           window.open(emailUrl, '_blank')
-        }, idx * 1000)
+        }, idx * 2000) // 2 seconds for email
       }
 
       if (originalIndex !== -1) {
@@ -177,11 +181,11 @@ export default function AdminPanel() {
       }
     })
 
-    setSendStatus({ 
-      success: true, 
-      message: `${leadsToContact.length} mensagem(ns) ${messageConfig.tipo === 'whatsapp' ? 'do WhatsApp' : 'de email'} aberta(s) em novas abas!` 
+    setSendStatus({
+      success: true,
+      message: `${leadsToContact.length} mensagem(ns) ${messageConfig.tipo === 'whatsapp' ? 'do WhatsApp' : 'de email'} aberta(s) em novas abas!`
     })
-    
+
     setTimeout(() => {
       setShowMessageModal(false)
       setSendStatus(null)
@@ -404,8 +408,8 @@ export default function AdminPanel() {
                       <td className="py-3 px-4 text-slate-300">{lead.regiao}</td>
                       <td className="py-3 px-4">
                         <span className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded">
-                          {lead.tipoSite === 'landing-page' ? 'Landing Page' : 
-                           lead.tipoSite === 'site-completo' ? 'Site Completo' : lead.tipoSite}
+                          {lead.tipoSite === 'landing-page' ? 'Landing Page' :
+                            lead.tipoSite === 'site-completo' ? 'Site Completo' : lead.tipoSite}
                         </span>
                       </td>
                       <td className="py-3 px-4 text-slate-400 text-sm">
@@ -466,11 +470,10 @@ export default function AdminPanel() {
             <h2 className="text-2xl font-bold text-white mb-6">Disparar Mensagens em Massa</h2>
 
             {sendStatus && (
-              <div className={`p-4 rounded-lg mb-6 flex items-center gap-2 ${
-                sendStatus.success 
-                  ? 'bg-green-600/20 border border-green-600 text-green-400' 
+              <div className={`p-4 rounded-lg mb-6 flex items-center gap-2 ${sendStatus.success
+                  ? 'bg-green-600/20 border border-green-600 text-green-400'
                   : 'bg-red-600/20 border border-red-600 text-red-400'
-              }`}>
+                }`}>
                 {sendStatus.success ? <CheckCircle className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
                 {sendStatus.message}
               </div>
@@ -507,8 +510,8 @@ export default function AdminPanel() {
                 <strong>Leads selecionados:</strong> {selectedLeads.length > 0 ? selectedLeads.length : filteredLeads.length}
               </p>
               <p className="text-slate-400 text-xs">
-                {messageConfig.tipo === 'whatsapp' 
-                  ? 'Será aberta uma nova aba do WhatsApp para cada lead (intervalo de 1 segundo entre cada)' 
+                {messageConfig.tipo === 'whatsapp'
+                  ? 'Será aberta uma nova aba do WhatsApp para cada lead (intervalo aleatório de 5 a 15 segundos para segurança)'
                   : 'Será aberto seu cliente de email com os destinatários preenchidos'}
               </p>
             </div>
