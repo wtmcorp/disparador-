@@ -79,10 +79,39 @@
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
         }
 
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 1024px) {
             .case-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -109,65 +138,78 @@
         <div class="container">
             <span class="hero-tag">Plataforma SaaS / Fintech</span>
             <h1 class="hero-title text-gradient">WTM Finanças</h1>
-            <p class="hero-desc" style="margin: 0 auto 40px;">Engenharia financeira de alta performance para controle de
-                patrimônio.</p>
+            <p class="hero-desc" style="margin: 0 auto 40px;">Inteligência financeira e controle de patrimônio em tempo
+                real.</p>
         </div>
     </section>
 
     <section class="case-study-content">
         <div class="container">
-            <img src="wtm-financas-screenshot.png" alt="WTM Finanças Interface" class="case-image-full">
+            <img src="wtm-financas-screenshot.png" alt="WTM Finanças Dashboard Principal" class="case-image-full">
 
             <div class="case-grid">
                 <div class="case-text">
                     <h2 class="case-section-title text-gradient">O Desafio</h2>
                     <p style="color: var(--color-text-dim); font-size: 18px; line-height: 1.8; margin-bottom: 40px;">
-                        O cliente necessitava de uma ferramenta robusta que centralizasse dados financeiros complexos em
-                        uma interface intuitiva. O desafio técnico era processar grandes volumes de dados e gerar
-                        gráficos interativos em tempo real sem comprometer a velocidade de carregamento.
+                        O objetivo era criar o "Intelligence OS" financeiro definitivo. O sistema precisava centralizar
+                        desde o rastreamento de patrimônio líquido e ROI de investimentos até a gestão detalhada de
+                        cartões de crédito e fluxo de caixa, tudo isso com uma interface que transmitisse autoridade e
+                        clareza técnica.
                     </p>
 
                     <h2 class="case-section-title text-gradient">A Solução</h2>
                     <p style="color: var(--color-text-dim); font-size: 18px; line-height: 1.8;">
-                        Desenvolvemos uma Single Page Application (SPA) utilizando React e uma arquitetura de estado
-                        otimizada. Implementamos dashboards dinâmicos com gráficos interativos que permitem ao usuário
-                        filtrar dados por períodos específicos e visualizar a evolução do seu patrimônio de forma clara
-                        e segura.
+                        Desenvolvemos uma plataforma ultra-rápida com foco em UX. Implementamos tickers de mercado ao
+                        vivo (Mercado Live), dashboards de crescimento mensal e um assistente de IA proprietário (WTM
+                        AI) para insights financeiros. A arquitetura foi construída para ser escalável e segura,
+                        utilizando o que há de mais moderno no ecossistema React.
                     </p>
                 </div>
 
                 <div class="case-details">
-                    <h2 class="case-section-title text-gradient">Tecnologias</h2>
+                    <h2 class="case-section-title text-gradient">Tech Stack</h2>
                     <div class="tech-stack">
                         <span class="tech-item">React.js</span>
-                        <span class="tech-item">Firebase</span>
-                        <span class="tech-item">Chart.js</span>
-                        <span class="tech-item">Tailwind CSS</span>
                         <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">Firebase Realtime</span>
+                        <span class="tech-item">Tailwind CSS</span>
+                        <span class="tech-item">Chart.js / Recharts</span>
                         <span class="tech-item">Framer Motion</span>
+                        <span class="tech-item">WTM AI Engine</span>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px;">
                         <div class="result-card">
                             <div class="result-number">100%</div>
-                            <div class="result-label">Responsivo</div>
+                            <div class="result-label">Dados em Tempo Real</div>
                         </div>
                         <div class="result-card">
-                            <div class="result-number">
-                                < 2s</div>
-                                    <div class="result-label">Tempo de Carga</div>
-                            </div>
+                            <div class="result-number">Sub 1s</div>
+                            <div class="result-label">Latência de Interface</div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="cta-box">
-                    <h2 class="cta-title text-gradient">Quer uma plataforma como esta?</h2>
-                    <p style="color: var(--color-text-dim); margin-bottom: 40px;">Nós temos a expertise técnica para
-                        transformar sua ideia em um sistema escalável.</p>
-                    <a href="https://wa.me/5511950916614" class="btn btn-primary">Falar com um Especialista</a>
+            <h2 class="case-section-title text-gradient" style="text-align: center; margin-bottom: 48px;">Interface do
+                Sistema</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="wtm-financas-screenshot.png" alt="Dashboard Visão Geral">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                        alt="Análise de Dados">
                 </div>
             </div>
+
+            <div class="cta-box" style="margin-top: 100px;">
+                <h2 class="cta-title text-gradient">Quer um sistema com este nível de excelência?</h2>
+                <p style="color: var(--color-text-dim); margin-bottom: 40px;">Transformamos sua visão de negócio em uma
+                    plataforma digital de alta performance.</p>
+                <a href="https://wa.me/5511950916614" class="btn btn-primary">Solicitar Consultoria Técnica</a>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
