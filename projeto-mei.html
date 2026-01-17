@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page MEI Lucrativo - WTMCorps Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --mei-primary: #0ea5e9;
+            --mei-dark: #0c4a6e;
+            --mei-accent: #f59e0b;
+        }
+
+        .lp-preview {
+            background: #f8fafc;
+            padding: 40px 0;
+        }
+
+        .lp-header {
+            background: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            border-radius: 12px 12px 0 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .lp-hero {
+            background: linear-gradient(135deg, var(--mei-dark) 0%, #0284c7 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-left: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .lp-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .lp-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .lp-cta-btn {
+            background: var(--mei-accent);
+            color: var(--mei-dark);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .lp-cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .lp-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 40px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+        }
+
+        .lp-feature-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lp-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f2fe;
+            color: var(--mei-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .lp-feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--mei-dark);
+        }
+
+        .lp-section-title {
+            text-align: center;
+            padding: 60px 20px 20px;
+            background: white;
+            border-left: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .lp-section-title h2 {
+            font-size: 32px;
+            color: var(--mei-dark);
+        }
+
+        .project-details-section {
+            padding: 80px 20px;
+            background: var(--color-background-alt);
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--mei-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <span class="logo-text">WTMCorps</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#portfolio" class="nav-link">Voltar ao Portfólio</a></li>
+                    <li><a href="index.html#contact" class="btn btn-primary btn-nav">Solicitar Projeto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero -->
+    <section class="project-hero" style="background: linear-gradient(135deg, #0ea5e9 0%, #0c4a6e 100%);">
+        <div class="container">
+            <h1 class="project-title">Landing Page para MEI</h1>
+            <div class="project-meta">
+                <span class="meta-item">Microempreendedor</span>
+                <span class="meta-item">Alta Conversão</span>
+                <span class="meta-item">Template Premium</span>
+            </div>
+            <p style="max-width: 700px; margin: 0 auto 30px; font-size: 18px; opacity: 0.9;">
+                Um modelo estratégico desenhado especificamente para profissionais autônomos e MEIs que precisam de uma
+                presença digital forte para vender seus serviços.
+            </p>
+        </div>
+    </section>
+
+    <!-- Live Preview Simulation -->
+    <section class="lp-preview">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span class="tech-tag">PREVIEW DO TEMPLATE</span>
+            </div>
+
+            <!-- Simulated LP Header -->
+            <div class="lp-header">
+                <div style="font-weight: 800; color: var(--mei-dark); font-size: 20px;">MEI Lucrativo</div>
+                <div style="display: flex; gap: 20px; font-size: 14px; font-weight: 600;">
+                    <span>Serviços</span>
+                    <span>Depoimentos</span>
+                    <span style="color: var(--mei-primary);">Contato</span>
+                </div>
+            </div>
+
+            <!-- Simulated LP Hero -->
+            <div class="lp-hero">
+                <h1>Transforme seu serviço em um negócio profissional.</h1>
+                <p>Pare de perder clientes por não ter um site. Tenha uma página que passa confiança e fecha vendas no
+                    automático.</p>
+                <a href="#" class="lp-cta-btn">Quero meu site agora</a>
+            </div>
+
+            <!-- Simulated LP Features -->
+            <div class="lp-features">
+                <div class="lp-feature-card">
+                    <div class="lp-feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3>Autoridade</h3>
+                    <p>Passe a imagem de uma empresa séria e profissional.</p>
+                </div>
+                <div class="lp-feature-card">
+                    <div class="lp-feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3>Agilidade</h3>
+                    <p>Seu cliente tira dúvidas e agenda pelo WhatsApp em segundos.</p>
+                </div>
+                <div class="lp-feature-card">
+                    <div class="lp-feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <h3>Conversão</h3>
+                    <p>Estrutura focada em transformar visitantes em dinheiro no bolso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section class="project-details-section">
+        <div class="container">
+            <div class="project-grid">
+                <div class="project-text">
+                    <h2>Por que este template vende?</h2>
+                    <p>Para o microempreendedor, o site não é apenas um "cartão de visitas", é uma ferramenta de vendas.
+                        Este template foi construído com gatilhos mentais de autoridade e escassez.</p>
+
+                    <ul class="project-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Design Mobile-First (90% dos seus clientes virão do celular)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Botão de WhatsApp flutuante sempre visível
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Seção de Prova Social (Depoimentos) estratégica
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Carregamento ultra-rápido para não perder leads
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 40px; display: flex; gap: 15px;">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JS</span>
+                        <span class="tech-tag">SEO</span>
+                    </div>
+                </div>
+                <div class="project-image-large">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+                        alt="MEI Profissional">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="project-cta">
+        <div class="container">
+            <h2 class="cta-title">Você é MEI e quer um site assim?</h2>
+            <p class="cta-description">Eu crio sua landing page em tempo recorde para você começar a vender mais ainda
+                essa semana.</p>
+            <a href="https://wa.me/5511950916614?text=Olá! Vi o template para MEI e gostaria de um orçamento."
+                class="btn btn-whatsapp" target="_blank">
+                Quero meu site profissional
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 WTMCorps. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
