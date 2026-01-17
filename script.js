@@ -1,52 +1,44 @@
-// ===================================
-// MOBILE MENU TOGGLE
-// ===================================
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navMenu = document.getElementById('navMenu');
-
-mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    });
-});
-
-// ===================================
-// HEADER SCROLL EFFECT
-// ===================================
+// Header Scroll Effect
 const header = document.getElementById('header');
-let lastScroll = 0;
-
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
+    if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
 });
 
-// ===================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
-// ===================================
+// Mobile Menu Toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+    });
+}
+
+// Close mobile menu when clicking a link
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+    });
+});
+
+// Smooth Scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
 
-        if (target) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
             const headerHeight = header.offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
             window.scrollTo({
                 top: targetPosition,
@@ -56,52 +48,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===================================
-// FORM SUBMISSION
-// ===================================
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
-
-    // Create WhatsApp message
-    const whatsappMessage = `
-Olá! Meu nome é ${formData.name}.
-
-📧 Email: ${formData.email}
-📱 Telefone: ${formData.phone}
-
-Mensagem:
-${formData.message}
-    `.trim();
-
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-
-    // WhatsApp number (replace with actual number)
-    const whatsappNumber = '5511950916614';
-
-    // Open WhatsApp
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-
-    // Reset form
-    contactForm.reset();
-
-    // Show success message
-    alert('Redirecionando para o WhatsApp...');
-});
-
-// ===================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ===================================
+// Intersection Observer for Animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -110,92 +57,47 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-const animateElements = document.querySelectorAll('.portfolio-card, .service-card, .testimonial-card, .process-step, .project-image-large, .project-text, .gallery-item, .project-hero h1, .project-hero .project-meta, .lp-hero h1, .lp-feature-card, .lp-header');
+// Elements to animate
+const animateElements = document.querySelectorAll('.portfolio-card, .service-card, .process-item, .hero-text, .hero-image, .section-title, .section-subtitle');
+
 animateElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
     observer.observe(el);
 });
 
-// ===================================
-// ACTIVE NAV LINK ON SCROLL
-// ===================================
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNavLink() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) {
-                navLink.classList.add('active');
-            }
+// Add animation class
+document.addEventListener('scroll', () => {
+    animateElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
         }
     });
-}
+});
 
-window.addEventListener('scroll', highlightNavLink);
+// Form Submission (WhatsApp Integration)
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-// ===================================
-// PORTFOLIO FILTER (OPTIONAL ENHANCEMENT)
-// ===================================
-// This can be expanded if you want to add filtering functionality
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
 
-// ===================================
-// LAZY LOADING IMAGES
-// ===================================
-if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.dataset.src;
+        const whatsappMessage = `Olá! Meu nome é ${name}.%0A%0AEmail: ${email}%0AWhatsApp: ${phone}%0A%0ASobre o projeto: ${message}`;
+        const whatsappUrl = `https://wa.me/5511950916614?text=${whatsappMessage}`;
+
+        window.open(whatsappUrl, '_blank');
     });
-} else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
 }
-
-// ===================================
-// PERFORMANCE OPTIMIZATION
-// ===================================
-// Debounce function for scroll events
-function debounce(func, wait = 10, immediate = true) {
-    let timeout;
-    return function () {
-        const context = this, args = arguments;
-        const later = function () {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// Apply debounce to scroll events
-window.addEventListener('scroll', debounce(() => {
-    highlightNavLink();
-}));
-
-// ===================================
-// CONSOLE MESSAGE
-// ===================================
-console.log('%c🚀 WTMCorps - Sites Profissionais', 'font-size: 20px; font-weight: bold; color: #2563eb;');
-console.log('%cDesenvolvido com ❤️ pela WTMCorps', 'font-size: 14px; color: #10b981;');
