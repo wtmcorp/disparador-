@@ -117,11 +117,11 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-const animateElements = document.querySelectorAll('.portfolio-card, .service-card, .testimonial-card, .process-step');
+const animateElements = document.querySelectorAll('.portfolio-card, .service-card, .testimonial-card, .process-step, .project-image-large, .project-text, .gallery-item, .project-hero h1, .project-hero .project-meta, .lp-hero h1, .lp-feature-card, .lp-header');
 animateElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
     observer.observe(el);
 });
 
