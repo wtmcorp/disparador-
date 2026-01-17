@@ -12,7 +12,7 @@ portifólio wtm corps/
 ├── style.css               # Estilos com animações avançadas
 ├── script.js               # Funcionalidades JavaScript
 ├── hero-mockup.png         # Imagem hero (seu mockup)
-├── wtm-financas-screenshot.png  # Screenshot do WTM Finanças
+├── wtm-financas-screenshot.jpg  # Screenshot do WTM Finanças
 ├── projeto-1.html          # Página de projeto (Clínica Odontológica)
 ├── projeto-2.html          # Página de projeto (Advocacia)
 ├── projeto-3.html          # Página de projeto (Academia)
