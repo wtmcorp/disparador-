@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="WTMCorps - Boutique de desenvolvimento web focada em performance, design premium e resultados reais.">
-    <title>WTMCorps | Agência de Experiência Digital</title>
+        content="WTMCorps - Especialistas em criar produtos digitais de alta performance que geram autoridade e vendas. Transformamos seu negócio com design premium e tecnologia de ponta.">
+    <title>WTMCorps | Estratégia & Design Digital de Alta Performance</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -16,38 +21,82 @@
         <div class="container">
             <nav class="nav">
                 <a href="#home" class="logo">
-                    <div class="logo-dot"></div>
-                    WTMCorps
+                    <div class="logo-symbol">
+                        <div class="logo-dot"></div>
+                    </div>
+                    <span class="logo-text">WTMCorps</span>
                 </a>
 
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Início</a></li>
                     <li><a href="#portfolio" class="nav-link">Projetos</a></li>
-                    <li><a href="#services" class="nav-link">Expertise</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                    <li><a href="#process" class="nav-link">Processo</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
                 </ul>
 
-                <a href="https://wa.me/5511950916614" class="btn btn-outline btn-small"
-                    style="padding: 10px 24px; font-size: 14px;">Vamos Conversar</a>
+                <a href="https://wa.me/5511950916614" class="btn btn-primary btn-sm glow-effect">
+                    <span>Falar no WhatsApp</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                </a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="bg-glow" style="top: -10%; right: -10%;"></div>
-        <div class="bg-glow" style="bottom: -10%; left: -10%; background: rgba(16, 185, 129, 0.05);"></div>
+        <div class="bg-glow top-right"></div>
+        <div class="bg-glow bottom-left"></div>
 
         <div class="container">
             <div class="hero-content">
-                <span class="hero-tag">Agência de Experiência Digital</span>
-                <h1 class="hero-title text-gradient">Construímos produtos digitais que <br>geram impacto.</h1>
-                <p class="hero-desc">Especialistas em transformar ideias complexas em experiências digitais simples,
-                    elegantes e extremamente lucrativas.</p>
+                <div class="hero-badge fade-in-up">
+                    <span class="badge-dot"></span>
+                    Disponível para novos projetos
+                </div>
 
-                <div class="hero-btns">
-                    <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#contact" class="btn btn-outline">Solicitar Orçamento</a>
+                <h1 class="hero-title fade-in-up delay-1">
+                    Não criamos apenas sites. <br>
+                    <span class="text-gradient">Criamos máquinas de vendas.</span>
+                </h1>
+
+                <p class="hero-desc fade-in-up delay-2">
+                    Posicione sua marca como líder de mercado com um design que transmite autoridade imediata e uma
+                    engenharia focada em conversão.
+                </p>
+
+                <div class="hero-btns fade-in-up delay-3">
+                    <a href="https://wa.me/5511950916614" class="btn btn-primary btn-lg glow-effect">
+                        Solicitar Orçamento
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#portfolio" class="btn btn-outline btn-lg">
+                        Ver Portfolio
+                    </a>
+                </div>
+
+                <div class="hero-stats fade-in-up delay-4">
+                    <div class="stat-item">
+                        <span class="stat-number">+40%</span>
+                        <span class="stat-label">Média de aumento<br>em conversão</span>
+                    </div>
+                    <div class="stat-separator"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Foco em<br>Performance</span>
+                    </div>
+                    <div class="stat-separator"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Sua empresa<br>vendendo</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,122 +106,229 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title text-gradient">Trabalhos <br>Selecionados</h2>
-                <p style="color: var(--color-text-dim); max-width: 400px;">Uma curadoria de projetos onde a engenharia
-                    encontra o design de alta performance.</p>
+                <div class="header-content">
+                    <span class="section-tag">Portfolio Selecionado</span>
+                    <h2 class="section-title">Resultados que falam <br><span class="text-gradient">por si mesmos.</span>
+                    </h2>
+                </div>
+                <p class="section-desc">
+                    Cada projeto é um estudo de caso de como design estratégico e tecnologia podem transformar um
+                    negócio.
+                </p>
             </div>
 
             <div class="portfolio-grid">
                 <!-- Project 1: WTM Finanças -->
-                <a href="projeto-10.html" class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="wtm-financas-screenshot.png" alt="WTM Finanças" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Fintech / SaaS</span>
-                        <h3 class="project-title">WTM Finanças</h3>
-                        <p style="color: var(--color-text-dim);">Plataforma de gestão patrimonial com análise de dados
-                            em tempo real e dashboards interativos.</p>
-                    </div>
-                </a>
+                <article class="project-card reveal-on-scroll">
+                    <a href="projeto-10.html" class="project-link">
+                        <div class="project-image-container">
+                            <img src="wtm-financas-screenshot.png" alt="WTM Finanças Dashboard" class="project-img">
+                            <div class="project-overlay">
+                                <span class="view-btn">Ver Estudo de Caso</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-tag">Fintech</span>
+                                <span class="project-tag">SaaS</span>
+                            </div>
+                            <h3 class="project-title">WTM Finanças</h3>
+                            <p class="project-excerpt">Plataforma completa de gestão patrimonial. Aumentou a retenção de
+                                usuários em 300% através de UX intuitiva e dashboards em tempo real.</p>
+                        </div>
+                    </a>
+                </article>
 
                 <!-- Project 2: MEI Lucrativo -->
-                <a href="projeto-mei.html" class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="mei-mockup.png" alt="MEI Lucrativo" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Landing Page / Vendas</span>
-                        <h3 class="project-title">MEI Lucrativo</h3>
-                        <p style="color: var(--color-text-dim);">Estratégia de conversão focada em transformar tráfego
-                            frio em leads qualificados via WhatsApp.</p>
-                    </div>
-                </a>
+                <article class="project-card reveal-on-scroll delay-1">
+                    <a href="projeto-mei.html" class="project-link">
+                        <div class="project-image-container">
+                            <img src="mei-mockup.png" alt="MEI Lucrativo Landing Page" class="project-img">
+                            <div class="project-overlay">
+                                <span class="view-btn">Ver Estudo de Caso</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-tag">Infoproduto</span>
+                                <span class="project-tag">Vendas</span>
+                            </div>
+                            <h3 class="project-title">MEI Lucrativo</h3>
+                            <p class="project-excerpt">Landing Page de alta conversão. Estrutura de copy persuasiva que
+                                gerou R$ 50k em vendas no primeiro lançamento.</p>
+                        </div>
+                    </a>
+                </article>
 
-                <!-- Project 3: Clínica Odontológica -->
-                <a href="projeto-1.html" class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="clinica-mockup.png" alt="Clínica Premium" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Institucional / Saúde</span>
-                        <h3 class="project-title">Clínica Odontológica Premium</h3>
-                        <p style="color: var(--color-text-dim);">Presença digital de autoridade com sistema de
-                            agendamento integrado para serviços de alto padrão.</p>
-                    </div>
-                </a>
+                <!-- Project 3: Clínica Premium -->
+                <article class="project-card reveal-on-scroll">
+                    <a href="projeto-1.html" class="project-link">
+                        <div class="project-image-container">
+                            <img src="clinica-mockup.png" alt="Clínica Odontológica" class="project-img">
+                            <div class="project-overlay">
+                                <span class="view-btn">Ver Estudo de Caso</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-tag">Saúde</span>
+                                <span class="project-tag">Institucional</span>
+                            </div>
+                            <h3 class="project-title">Clínica Odontológica Premium</h3>
+                            <p class="project-excerpt">Reposicionamento digital completo. O novo site transmite luxo e
+                                confiança, dobrando o número de agendamentos de tickets altos.</p>
+                        </div>
+                    </a>
+                </article>
 
-                <!-- Project 4: Advocacia Empresarial -->
-                <a href="projeto-2.html" class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="advocacia-mockup.png" alt="Advocacia" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Geração de Leads / Jurídico</span>
-                        <h3 class="project-title">Advocacia Empresarial B2B</h3>
-                        <p style="color: var(--color-text-dim);">Funil de vendas estratégico e posicionamento de
-                            autoridade para escritórios corporativos.</p>
-                    </div>
-                </a>
+                <!-- Project 4: Advocacia B2B -->
+                <article class="project-card reveal-on-scroll delay-1">
+                    <a href="projeto-2.html" class="project-link">
+                        <div class="project-image-container">
+                            <img src="advocacia-mockup.png" alt="Advocacia Corporativa" class="project-img">
+                            <div class="project-overlay">
+                                <span class="view-btn">Ver Estudo de Caso</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-tag">Jurídico</span>
+                                <span class="project-tag">B2B</span>
+                            </div>
+                            <h3 class="project-title">Advocacia Empresarial</h3>
+                            <p class="project-excerpt">Site institucional focado em autoridade. Design sóbrio e elegante
+                                que validou a competência do escritório para grandes contratos.</p>
+                        </div>
+                    </a>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Process Section (New) -->
+    <section class="process" id="process">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title text-gradient">Nossa <br>Expertise</h2>
+            <div class="section-header center">
+                <span class="section-tag">Como Trabalhamos</span>
+                <h2 class="section-title">Do conceito ao lançamento <br><span class="text-gradient">em 4 passos.</span>
+                </h2>
             </div>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4" />
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Sistemas Web</h3>
-                    <p class="service-desc">Desenvolvimento de aplicações robustas e escaláveis utilizando as
-                        tecnologias mais modernas do mercado, como React e Node.js.</p>
+            <div class="process-steps">
+                <div class="step-card reveal-on-scroll">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Descoberta & Estratégia</h3>
+                    <p class="step-desc">Entendemos seu modelo de negócio, público-alvo e objetivos. Não escrevemos uma
+                        linha de código sem antes definir como vamos vender seu peixe.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Landing Pages</h3>
-                    <p class="service-desc">Páginas focadas 100% em conversão, com copywriting persuasivo, design de
-                        alto impacto e carregamento instantâneo.</p>
+                <div class="step-card reveal-on-scroll delay-1">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Design & UX</h3>
+                    <p class="step-desc">Criamos o visual da sua marca. Foco total em estética premium e experiência do
+                        usuário fluida. Seu cliente precisa se apaixonar à primeira vista.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 2v20M2 12h20" />
-                        </svg>
-                    </div>
-                    <h3 class="service-title">UI/UX Design</h3>
-                    <p class="service-desc">Interfaces intuitivas e esteticamente impecáveis que encantam o usuário e
-                        facilitam a jornada de compra do seu cliente.</p>
+                <div class="step-card reveal-on-scroll delay-2">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Desenvolvimento</h3>
+                    <p class="step-desc">Transformamos o design em realidade usando as tecnologias mais modernas (React,
+                        Next.js). Código limpo, rápido e otimizado para SEO.</p>
+                </div>
+                <div class="step-card reveal-on-scroll delay-3">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Lançamento & Otimização</h3>
+                    <p class="step-desc">Colocamos seu site no ar e monitoramos a performance. Garantimos que tudo
+                        funcione perfeitamente em qualquer dispositivo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- About/Authority Section (New) -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal-on-scroll">
+                    <span class="section-tag">Sobre a WTMCorps</span>
+                    <h2 class="section-title">Não somos uma agência comum. <br><span class="text-gradient">Somos seus
+                            parceiros de crescimento.</span></h2>
+                    <p class="about-text">
+                        No mundo digital saturado de hoje, "bom" não é suficiente. Para se destacar, você precisa do
+                        excepcional.
+                    </p>
+                    <p class="about-text">
+                        A WTMCorps nasceu com uma missão clara: democratizar o acesso a produtos digitais de nível
+                        global. Combinamos a estética refinada de estúdios de design premiados com a engenharia robusta
+                        de grandes tech companies.
+                    </p>
+                    <p class="about-text">
+                        Nosso foco não é entregar um site. É entregar uma ferramenta de negócios que trabalha para você
+                        24 horas por dia.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Design Exclusivo (Sem templates prontos)</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Otimização Máxima de Performance</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Suporte Contínuo e Evolutivo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual reveal-on-scroll delay-2">
+                    <div class="visual-card glass-card">
+                        <div class="code-snippet">
+                            <div class="code-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <pre><code>
+<span class="keyword">const</span> <span class="variable">sucesso</span> = <span class="keyword">new</span> <span class="class">Projeto</span>({
+  <span class="prop">foco</span>: <span class="string">'Conversão'</span>,
+  <span class="prop">design</span>: <span class="string">'Premium'</span>,
+  <span class="prop">tecnologia</span>: <span class="string">'Avançada'</span>
+});
+
+<span class="function">sucesso</span>.<span class="method">decolar</span>();
+                            </code></pre>
+                        </div>
+                        <div class="visual-stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-name">Comprometimento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="cta-box">
-                <div class="bg-glow"
-                    style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; opacity: 0.3;"></div>
-                <h2 class="cta-title text-gradient">Pronto para elevar o nível do seu projeto?</h2>
-                <div class="hero-btns" style="justify-content: center;">
-                    <a href="https://wa.me/5511950916614" class="btn btn-primary">Chamar no WhatsApp</a>
-                    <a href="mailto:contato@wtmcorps.com" class="btn btn-outline">Enviar E-mail</a>
+            <div class="cta-box reveal-on-scroll">
+                <div class="bg-glow center"></div>
+                <h2 class="cta-title">Seu negócio está pronto para o <br><span class="text-gradient">próximo
+                        nível?</span></h2>
+                <p class="cta-desc">
+                    Não deixe dinheiro na mesa com um site amador. Vamos construir algo grandioso juntos.
+                </p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/5511950916614" class="btn btn-primary btn-xl glow-effect">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        Agendar Consultoria Gratuita
+                    </a>
+                    <span class="cta-note">Resposta em até 2 horas úteis.</span>
                 </div>
             </div>
         </div>
@@ -181,9 +337,26 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <a href="#home" class="logo">WTMCorps</a>
-                <p class="copyright">&copy; 2026 WTMCorps. Todos os direitos reservados.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">WTMCorps</a>
+                    <p>Transformando visões em realidade digital.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Menu</h4>
+                    <a href="#home">Início</a>
+                    <a href="#portfolio">Projetos</a>
+                    <a href="#process">Processo</a>
+                    <a href="#about">Sobre</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <a href="https://wa.me/5511950916614">WhatsApp: (11) 95091-6614</a>
+                    <a href="mailto:contato@wtmcorps.com">contato@wtmcorps.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WTMCorps. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

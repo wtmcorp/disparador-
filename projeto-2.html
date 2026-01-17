@@ -4,174 +4,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacia Empresarial B2B | Estudo de Caso - WTMCorps</title>
+    <title>Advocacia Empresarial | Estudo de Caso - WTMCorps</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        .project-hero-detail {
-            padding: 180px 24px 100px;
-            background: linear-gradient(135deg, #050505 0%, #1e1b4b 100%);
+        /* Project Specific Styles */
+        .project-hero {
+            padding: 180px 0 100px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            background: radial-gradient(circle at top, rgba(234, 179, 8, 0.15), transparent 70%);
         }
 
-        .case-study-content {
-            padding: 100px 24px;
-        }
-
-        .case-grid {
+        .project-overview {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 80px;
-            margin-bottom: 100px;
-        }
-
-        .case-section-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .tech-item {
-            padding: 10px 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 40px;
             background: var(--color-bg-alt);
             border: 1px solid var(--color-border);
-            border-radius: 12px;
+            border-radius: 24px;
+            margin-bottom: 80px;
+        }
+
+        .overview-item h4 {
             font-size: 14px;
+            color: var(--color-text-dim);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .overview-item p {
+            font-size: 18px;
             font-weight: 600;
-            color: var(--color-text);
+        }
+
+        .case-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .case-block h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #eab308;
+        }
+
+        .case-block p {
+            color: var(--color-text-dim);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 24px;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 80px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
         }
 
         .result-card {
+            padding: 32px;
             background: var(--color-bg-alt);
-            padding: 40px;
-            border-radius: 24px;
             border: 1px solid var(--color-border);
+            border-radius: 24px;
             text-align: center;
-            transition: var(--transition);
         }
 
-        .result-card:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-5px);
-        }
-
-        .result-number {
+        .result-value {
             font-size: 48px;
             font-weight: 800;
-            color: var(--color-primary);
+            color: #eab308;
             margin-bottom: 8px;
+            display: block;
         }
 
-        .case-image-full {
-            width: 100%;
-            border-radius: 32px;
-            border: 1px solid var(--color-border);
-            margin-bottom: 80px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        .result-label {
+            color: var(--color-text-dim);
+            font-size: 14px;
         }
 
-        @media (max-width: 1024px) {
-            .case-grid {
+        @media (max-width: 768px) {
+            .project-overview {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .case-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <header class="header scrolled">
+    <header class="header" id="header">
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-dot"></div>
-                    WTMCorps
+                    <div class="logo-symbol">
+                        <div class="logo-dot"></div>
+                    </div>
+                    <span class="logo-text">WTMCorps</span>
                 </a>
-                <ul class="nav-menu">
-                    <li><a href="index.html#portfolio" class="nav-link">Voltar aos Projetos</a></li>
-                </ul>
-                <a href="https://wa.me/5511950916614" class="btn btn-outline btn-small">Solicitar Projeto</a>
+                <a href="index.html#portfolio" class="btn btn-outline btn-sm">Voltar</a>
             </nav>
         </div>
     </header>
 
-    <section class="project-hero-detail">
-        <div class="bg-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.2;"></div>
+    <section class="project-hero">
         <div class="container">
-            <span class="hero-tag">Geração de Leads / Jurídico</span>
-            <h1 class="hero-title text-gradient">Advocacia Empresarial B2B</h1>
-            <p class="hero-desc" style="margin: 0 auto 40px;">Posicionamento estratégico e funil de vendas para
-                escritórios de alta performance.</p>
+            <span class="section-tag" style="color: #eab308;">Jurídico / B2B</span>
+            <h1 class="hero-title text-gradient">Advocacia Empresarial</h1>
+            <p class="hero-desc">Autoridade e sobriedade para fechar grandes contratos corporativos.</p>
         </div>
     </section>
 
-    <section class="case-study-content">
-        <div class="container">
-            <img src="advocacia-mockup.png" alt="Advocacia Interface Principal" class="case-image-full">
+    <div class="container">
+        <img src="advocacia-mockup.png" alt="Advocacia Website" class="main-image reveal-on-scroll">
 
-            <div class="case-grid">
-                <div class="case-text">
-                    <h2 class="case-section-title text-gradient">O Desafio</h2>
-                    <p style="color: var(--color-text-dim); font-size: 18px; line-height: 1.8; margin-bottom: 40px;">
-                        O mercado jurídico B2B exige um nível de sobriedade e autoridade que poucos sites conseguem
-                        transmitir. O desafio era criar um funil de geração de leads que filtrasse empresas qualificadas
-                        e posicionasse o escritório como um parceiro estratégico, indo muito além de um simples "cartão
-                        de visitas digital".
-                    </p>
-
-                    <h2 class="case-section-title text-gradient">A Solução</h2>
-                    <p style="color: var(--color-text-dim); font-size: 18px; line-height: 1.8;">
-                        Implementamos uma arquitetura de conversão baseada em autoridade técnica. O site conta com
-                        seções de "Áreas de Atuação" detalhadas, blog estratégico para SEO de cauda longa e formulários
-                        de contato inteligentes. O design utiliza tons sóbrios e elementos de confiança para garantir
-                        que o primeiro contato do cliente corporativo seja impactante.
-                    </p>
-                </div>
-
-                <div class="case-details">
-                    <h2 class="case-section-title text-gradient">Expertise Aplicada</h2>
-                    <div class="tech-stack">
-                        <span class="tech-item">Copywriting B2B</span>
-                        <span class="tech-item">Funil de Leads</span>
-                        <span class="tech-item">SEO de Autoridade</span>
-                        <span class="tech-item">Design Corporativo</span>
-                        <span class="tech-item">Analytics Avançado</span>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px;">
-                        <div class="result-card">
-                            <div class="result-number">+150%</div>
-                            <div class="result-label">Leads Qualificados</div>
-                        </div>
-                        <div class="result-card">
-                            <div class="result-number">95%</div>
-                            <div class="result-label">Índice de Autoridade</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="project-overview reveal-on-scroll delay-1">
+            <div class="overview-item">
+                <h4>Cliente</h4>
+                <p>Mendes & Associados</p>
             </div>
-
-            <div class="cta-box">
-                <h2 class="cta-title text-gradient">Seu escritório está pronto para o próximo nível?</h2>
-                <p style="color: var(--color-text-dim); margin-bottom: 40px;">Construímos a ponte digital entre sua
-                    expertise jurídica e seus futuros clientes.</p>
-                <a href="https://wa.me/5511950916614" class="btn btn-primary">Agendar Consultoria Estratégica</a>
+            <div class="overview-item">
+                <h4>Serviço</h4>
+                <p>Site Corporativo</p>
+            </div>
+            <div class="overview-item">
+                <h4>Objetivo</h4>
+                <p>Autoridade B2B</p>
+            </div>
+            <div class="overview-item">
+                <h4>Resultado</h4>
+                <p>Novos Contratos</p>
             </div>
         </div>
-    </section>
+
+        <div class="case-content reveal-on-scroll">
+            <div class="case-block">
+                <h3>O Desafio</h3>
+                <p>O escritório Mendes & Associados estava expandindo para o mercado corporativo, mas seu site antigo
+                    não refletia o porte que a empresa havia alcançado. Eles precisavam de uma vitrine digital que
+                    passasse credibilidade imediata para diretores jurídicos de grandes empresas.</p>
+            </div>
+            <div class="case-block">
+                <h3>A Solução</h3>
+                <p>Criamos um portal de conteúdo jurídico com design sóbrio e elegante, utilizando tons de azul marinho
+                    e dourado. A arquitetura da informação foi focada em destacar as áreas de atuação e a experiência
+                    dos sócios. Implementamos também uma área de "Insights" para marketing de conteúdo.</p>
+            </div>
+        </div>
+
+        <div class="results-grid reveal-on-scroll">
+            <div class="result-card">
+                <span class="result-value">2</span>
+                <span class="result-label">Grandes Contratos (Mês 1)</span>
+            </div>
+            <div class="result-card">
+                <span class="result-value">+40%</span>
+                <span class="result-label">Tempo de Permanência</span>
+            </div>
+            <div class="result-card">
+                <span class="result-value">Top 3</span>
+                <span class="result-label">Buscas Orgânicas</span>
+            </div>
+        </div>
+
+        <div class="cta-box reveal-on-scroll">
+            <h2 class="cta-title">Seu escritório transmite autoridade?</h2>
+            <p class="cta-desc">Tenha um site à altura da sua competência jurídica.</p>
+            <a href="https://wa.me/5511950916614" class="btn btn-primary btn-lg glow-effect">Solicitar Orçamento</a>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
-            <p class="copyright" style="text-align: center;">&copy; 2026 WTMCorps. Todos os direitos reservados.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WTMCorps. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
