@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initHeaderScroll();
     initSmoothScroll();
+    initMobileMenu();
 });
 
 // Scroll Animations (Intersection Observer)
@@ -43,10 +44,10 @@ function initHeaderScroll() {
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId.startsWith('#')) return;
 
+            e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerOffset = 80;
@@ -60,4 +61,28 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
 }
