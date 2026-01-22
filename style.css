@@ -932,7 +932,7 @@ img {
         flex-direction: column;
     }
 
-    .btn {
+    .btn:not(.btn-sm) {
         width: 100%;
     }
 }
